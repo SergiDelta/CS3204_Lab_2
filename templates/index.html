@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Meteo App</title>
+   <meta name="newport" content="width=device-width, initial-scale=1"/>
+</head>
+<style>
+   body {
+      background-color: #f5f5f5;
+   }
+   h1 {
+      color: white;
+      background-color: #c40000;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      text-align: center;
+      font-family: Helvetica;
+      margin-bottom: 0px;
+   }
+   p {
+      color: white;
+      text-align: center;
+      font-family: Helvetica;
+      margin-top: 0px;
+      margin-bottom: 0px;
+   }
+   table {
+      width:100%;
+      border:1px solid black;
+      margin-top: 0px;
+      margin-bottom: 0px;
+   }
+   th, td {
+      border:1px solid black;
+      font-family: Helvetica;
+      text-align: center;
+   }
+   footer {
+      background-color: #c40000;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      font-family: Helvetica;
+      font-style: bold;
+      margin-top: 0px;
+   }
+   
+   a {
+      color: white;
+   }
+</style>
+<body>
+   <h1>Weather data from Cork, Ireland</h1>
+   <p><table style="width:100%">
+         <tr>
+            <th>Month</th>
+            <th>Avg Max Temperature (ºC)</th>
+            <th>Avg Min Temperature (ºC)</th>
+            <th>Mean Temperature (ºC)</th>
+            <th>Highest Temperature (ºC)</th>
+            <th>Lowest Temperature (ºC)</th>
+            <th>Total Rainfall (mL)</th>
+            <th>Most Rainfall in a day (mL)</th>
+            <th>Raindays</th>
+            <th>Total Sun Hours</th>
+            <th>Most Sun Hours in a day</th>
+            <th>Max Wind (km/h)</th>
+         </tr>
+         <tr>
+            <td>September 2022</td>
+            <td>{{avg_max_temp_sep}}</td>
+            <td>{{avg_min_temp_sep}}</td>
+            <td>{{mean_temp_sep}}</td>
+            <td>{{high_temp_sep}}</td>
+            <td>{{low_temp_sep}}</td>
+            <td>{{total_rain_sep}}</td>
+            <td>{{most_rain_sep}}</td>
+            <td>{{raindays_sep}}</td>
+            <td>{{total_sun_sep}}</td>
+            <td>{{most_sun_sep}}</td>
+            <td>{{max_wind_sep}}</td>
+         </tr>
+         <tr>
+            <td>August 2022</td>
+            <td>{{avg_max_temp_aug}}</td>
+            <td>{{avg_min_temp_aug}}</td>
+            <td>{{mean_temp_aug}}</td>
+            <td>{{high_temp_aug}}</td>
+            <td>{{low_temp_aug}}</td>
+            <td>{{total_rain_aug}}</td>
+            <td>{{most_rain_aug}}</td>
+            <td>{{raindays_aug}}</td>
+            <td>{{total_sun_aug}}</td>
+            <td>{{most_sun_aug}}</td>
+            <td>{{max_wind_aug}}</td>
+         </tr>
+         <tr>
+            <td>July 2022</td>
+            <td>{{avg_max_temp_jul}}</td>
+            <td>{{avg_min_temp_jul}}</td>
+            <td>{{mean_temp_jul}}</td>
+            <td>{{high_temp_jul}}</td>
+            <td>{{low_temp_jul}}</td>
+            <td>{{total_rain_jul}}</td>
+            <td>{{most_rain_jul}}</td>
+            <td>{{raindays_jul}}</td>
+            <td>{{total_sun_jul}}</td>
+            <td>{{most_sun_jul}}</td>
+            <td>{{max_wind_jul}}</td>
+         </tr>
+         <tr>
+            <td>June 2022</td>
+            <td>{{avg_max_temp_jun}}</td>
+            <td>{{avg_min_temp_jun}}</td>
+            <td>{{mean_temp_jun}}</td>
+            <td>{{high_temp_jun}}</td>
+            <td>{{low_temp_jun}}</td>
+            <td>{{total_rain_jun}}</td>
+            <td>{{most_rain_jun}}</td>
+            <td>{{raindays_jun}}</td>
+            <td>{{total_sun_jun}}</td>
+            <td>{{most_sun_jun}}</td>
+            <td>{{max_wind_jun}}</td>
+         </tr>
+         <tr>
+            <td>May 2022</td>
+            <td>{{avg_max_temp_may}}</td>
+            <td>{{avg_min_temp_may}}</td>
+            <td>{{mean_temp_may}}</td>
+            <td>{{high_temp_may}}</td>
+            <td>{{low_temp_may}}</td>
+            <td>{{total_rain_may}}</td>
+            <td>{{most_rain_may}}</td>
+            <td>{{raindays_may}}</td>
+            <td>{{total_sun_may}}</td>
+            <td>{{most_sun_may}}</td>
+            <td>{{max_wind_may}}</td>
+         </tr>
+         <tr>
+            <td>April 2022</td>
+            <td>{{avg_max_temp_apr}}</td>
+            <td>{{avg_min_temp_apr}}</td>
+            <td>{{mean_temp_apr}}</td>
+            <td>{{high_temp_apr}}</td>
+            <td>{{low_temp_apr}}</td>
+            <td>{{total_rain_apr}}</td>
+            <td>{{most_rain_apr}}</td>
+            <td>{{raindays_apr}}</td>
+            <td>{{total_sun_apr}}</td>
+            <td>{{most_sun_apr}}</td>
+            <td>{{max_wind_apr}}</td>
+         </tr>
+         <tr>
+            <td>March 2022</td>
+            <td>{{avg_max_temp_mar}}</td>
+            <td>{{avg_min_temp_mar}}</td>
+            <td>{{mean_temp_mar}}</td>
+            <td>{{high_temp_mar}}</td>
+            <td>{{low_temp_mar}}</td>
+            <td>{{total_rain_mar}}</td>
+            <td>{{most_rain_mar}}</td>
+            <td>{{raindays_mar}}</td>
+            <td>{{total_sun_mar}}</td>
+            <td>{{most_sun_mar}}</td>
+            <td>{{max_wind_mar}}</td>
+         </tr>
+         <tr>
+            <td>February 2022</td>
+            <td>{{avg_max_temp_feb}}</td>
+            <td>{{avg_min_temp_feb}}</td>
+            <td>{{mean_temp_feb}}</td>
+            <td>{{high_temp_feb}}</td>
+            <td>{{low_temp_feb}}</td>
+            <td>{{total_rain_feb}}</td>
+            <td>{{most_rain_feb}}</td>
+            <td>{{raindays_feb}}</td>
+            <td>{{total_sun_feb}}</td>
+            <td>{{most_sun_feb}}</td>
+            <td>{{max_wind_feb}}</td>
+         </tr>
+         <tr>
+            <td>January 2022</td>
+            <td>{{avg_max_temp_jan}}</td>
+            <td>{{avg_min_temp_jan}}</td>
+            <td>{{mean_temp_jan}}</td>
+            <td>{{high_temp_jan}}</td>
+            <td>{{low_temp_jan}}</td>
+            <td>{{total_rain_jan}}</td>
+            <td>{{most_rain_jan}}</td>
+            <td>{{raindays_jan}}</td>
+            <td>{{total_sun_jan}}</td>
+            <td>{{most_sun_jan}}</td>
+            <td>{{max_wind_jan}}</td>
+         </tr>
+         <tr>
+            <td>December 2021</td>
+            <td>{{avg_max_temp_dec}}</td>
+            <td>{{avg_min_temp_dec}}</td>
+            <td>{{mean_temp_dec}}</td>
+            <td>{{high_temp_dec}}</td>
+            <td>{{low_temp_dec}}</td>
+            <td>{{total_rain_dec}}</td>
+            <td>{{most_rain_dec}}</td>
+            <td>{{raindays_dec}}</td>
+            <td>{{total_sun_dec}}</td>
+            <td>{{most_sun_dec}}</td>
+            <td>{{max_wind_dec}}</td>
+         </tr>
+         <tr>
+            <td>November 2021</td>
+            <td>{{avg_max_temp_nov}}</td>
+            <td>{{avg_min_temp_nov}}</td>
+            <td>{{mean_temp_nov}}</td>
+            <td>{{high_temp_nov}}</td>
+            <td>{{low_temp_nov}}</td>
+            <td>{{total_rain_nov}}</td>
+            <td>{{most_rain_nov}}</td>
+            <td>{{raindays_nov}}</td>
+            <td>{{total_sun_nov}}</td>
+            <td>{{most_sun_nov}}</td>
+            <td>{{max_wind_nov}}</td>
+         </tr>
+         <tr>
+            <td>October 2021</td>
+            <td>{{avg_max_temp_oct}}</td>
+            <td>{{avg_min_temp_oct}}</td>
+            <td>{{mean_temp_oct}}</td>
+            <td>{{high_temp_oct}}</td>
+            <td>{{low_temp_oct}}</td>
+            <td>{{total_rain_oct}}</td>
+            <td>{{most_rain_oct}}</td>
+            <td>{{raindays_oct}}</td>
+            <td>{{total_sun_oct}}</td>
+            <td>{{most_sun_oct}}</td>
+            <td>{{max_wind_oct}}</td>
+         </tr>
+   </table></p>
+   <footer><p><strong>Data obtained from <a href=https://data.cso.ie>https://data.cso.ie</a> JSON API</strong></p>
+   <p><strong>Sergio Garcia Lopez - CS3204 - University College Cork</strong></p></footer>
+</body>
+</html>
